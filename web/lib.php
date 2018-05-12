@@ -67,7 +67,7 @@ function get_playlist_video($plid,$apikey){
 
 //获取用户频道视频
 function get_channel_video($cid,$pageToken='',$apikey,$regionCode='VN',$maxCount=50){
-	$key = $cid.'-'.$maxCount
+	$key = $cid.'-'.$maxCount;
 	$data = getcache($key);
 	if(!empty($data)){
 		return $data;
@@ -89,7 +89,6 @@ function videoCategories($apikey,$regionCode='HK'){
    $data = json_decode(get_data($apilink),true);
  	setcache($key, $data);
 	return $data;
-}
 }
 
 
