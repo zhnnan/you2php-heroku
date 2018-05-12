@@ -71,12 +71,12 @@ function get_channel_video($cid,$pageToken='',$apikey,$regionCode='VN',$maxCount
 	$data = getcache($key);
 	if(!empty($data)){
 		echo $data;
-		return json_decode($data);
+		return json_decode($data,true);
 	}
    $apilink='https://www.googleapis.com/youtube/v3/search?order=date&part=snippet&maxResults='.$maxCount.'&type=video&regionCode='.$regionCode.'&hl=zh-CN&channelId='.$cid.'&key='.$apikey.'&pageToken='.$pageToken;
    $data = get_data($apilink);
  	setcache($key, $data);
-	return json_decode($data);
+	return json_decode($data,true);
 }
 
 //获取视频类别内容
