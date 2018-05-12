@@ -530,4 +530,10 @@ $part=rtrim($_SERVER['SCRIPT_NAME'],basename($_SERVER['SCRIPT_NAME']));
 $domain=$_SERVER['SERVER_NAME'];
  return "$http"."$domain"."$part";
 }
+
+
+function get_thumb_url($vid){
+	return 'http://'.NGINX_SERVER.':8701/vi/'.$vid.'/mqdefault.jpg';
+}
+
 ?>

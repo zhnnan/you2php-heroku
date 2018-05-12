@@ -165,10 +165,11 @@ ini_set('error_log', dirname(__FILE__) . '/error_log.txt');
     	 
      foreach($related["items"] as $v) {
 		$videoid=$v["snippet"]["resourceId"]["videoId"];
+		$thumburl = get_thumb_url($videoid);
        echo'<div class="media height1">
     		<div class="media-left" style="width:40%">
     		<a href="./watch.php?v='.$videoid.'">
-    		<img src="./thumbnail.php?type=mqdefault&vid='.$videoid.'" width="100%">
+    		<img src="'.$thumburl.'" width="100%">
     		</a>
     		</div>
     		<div class="media-body pl-2">
