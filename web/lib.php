@@ -8,6 +8,7 @@
  */
 
 require_once(dirname(__FILE__).'/config.php');
+require_once(dirname(__FILE__).'/cache.php');
 
 //加载第三方ytb解析库
 require_once(dirname(__FILE__).'/YouTubeDownloader.php');
