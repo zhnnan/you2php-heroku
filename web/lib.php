@@ -70,6 +70,7 @@ function get_channel_video($cid,$pageToken='',$apikey,$regionCode='VN',$maxCount
 	$key = $cid.'-'.$maxCount;
 	$data = getcache($key);
 	if(!empty($data)){
+		echo $data;
 		return json_decode($data);
 	}
    $apilink='https://www.googleapis.com/youtube/v3/search?order=date&part=snippet&maxResults='.$maxCount.'&type=video&regionCode='.$regionCode.'&hl=zh-CN&channelId='.$cid.'&key='.$apikey.'&pageToken='.$pageToken;
