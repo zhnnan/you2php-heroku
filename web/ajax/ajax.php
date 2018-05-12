@@ -21,8 +21,9 @@ ini_set('error_log', dirname(__FILE__) . '/error_log.txt');
     		}
             	   echo '<ul  class="list-unstyled  video-list-thumbs row pt-1">';
             	   foreach($videodata["items"] as $v) {
+					$thumburl = get_thumb_url($v["id"]["videoId"]);
                 echo '<li class="col-xs-6 col-sm-6 col-md-4 col-lg-4" ><a href="./watch.php?v='.$v["id"]["videoId"].'" target="_black" class="hhh" title="'.$v["snippet"]["title"].'" >
-            			<img src="./thumbnail.php?type=mqdefault&vid='.$v["id"]["videoId"].'" class="img-responsive" />
+            			<img src="'.$thumburl.'" class="img-responsive" />
             			<p class="fa fa-play-circle-o kkk" ></p>
             			<span class="text-dark text-overflow font2 my-2">'.$v["snippet"]["title"].'</span></a>
             		
@@ -104,10 +105,11 @@ ini_set('error_log', dirname(__FILE__) . '/error_log.txt');
     		    exit;
     		}
     		foreach($video['items'] as $v) {
+				$thumburl = get_thumb_url($v["id"]["videoId"]);
         echo ' <div class="media height1 py-3 pt-3">
     		<div class="media-left" style="width:30%;min-width:30%;">
     		<a href="./watch.php?v='. $v['id']['videoId'].'" target="_blank" class="d-block" style="position:relative">
-    		<img src="./thumbnail.php?type=mqdefault&vid='. $v['id']['videoId'].'" width="100%">
+    		<img src="'.$thumburl.'" width="100%">
     		<p class="small smallp"><i class="fa fa-clock-o pr-1 text-white"></i>'.format_date($v['snippet']['publishedAt']).'</p>
     		</a>
     		</div>
@@ -209,8 +211,9 @@ ini_set('error_log', dirname(__FILE__) . '/error_log.txt');
     $home_data=get_trending(APIKEY,'18','',GJ_CODE);
     echo'<ul class="list-unstyled video-list-thumbs row pt-1">';
     foreach($home_data["items"] as $v) {
+		$thumburl = get_thumb_url($v["id"]["videoId"]);
     echo '<li class="col-xs-6 col-sm-6 col-md-4 col-lg-4" ><a href="./watch.php?v='. $v["id"].'" class="hhh" >
-    			<img src="./thumbnail.php?type=mqdefault&vid='.$v["id"].'" class=" img-responsive" /><p class="fa fa-play-circle-o kkk" ></p>
+    			<img src="'.$thumburl.'" class=" img-responsive" /><p class="fa fa-play-circle-o kkk" ></p>
     			<span class="text-dark text-overflow font2 my-2" title="'.$v["snippet"]["title"].'">'.$v["snippet"]["title"].'</span></a>
     			<div class="pull-left pull-left1 icontext"><i class="fa fa-user icoys"></i><span class="pl-1"><a href="./channel.php?channelid='.$v["snippet"]["channelId"].'"  class=" icoys" title="'.$v["snippet"]["channelTitle"].'">'.$v["snippet"]["channelTitle"].'</a></span></div>
     		
@@ -226,8 +229,9 @@ ini_set('error_log', dirname(__FILE__) . '/error_log.txt');
 	$topd=get_channel_video($_GET['channelid'],$ptk,APIKEY,GJ_CODE,$maxCount=3);
     echo'<ul class="list-unstyled video-list-thumbs row pt-1">';
     foreach($topd["items"] as $v) {
+		$thumburl = get_thumb_url($v["id"]["videoId"]);
     echo '<li class="col-xs-6 col-sm-6 col-md-4 col-lg-4" ><a href="./watch.php?v='. $v["id"]['videoId'].'" class="hhh" >
-    			<img src="./thumbnail.php?type=mqdefault&vid='.$v["id"]['videoId'].'" class=" img-responsive" /><p class="fa fa-play-circle-o kkk" ></p>
+    			<img src="'.$thumburl.'" class=" img-responsive" /><p class="fa fa-play-circle-o kkk" ></p>
     			<span class="text-dark text-overflow font2 my-2" title="'.$v["snippet"]["title"].'">'.$v["snippet"]["title"].'</span></a>
     			<div class="pull-left pull-left1 icontext"><i class="fa fa-user icoys"></i><span class="pl-1"><a href="./channel.php?channelid='.$v["snippet"]["channelId"].'"  class=" icoys" title="'.$v["snippet"]["channelTitle"].'">'.$v["snippet"]["channelTitle"].'</a></span></div>
     		
@@ -375,6 +379,7 @@ echo '<h6 class="pt-3"><b>用户须知：</b><h6>';
     }
     echo'<ul class="list-unstyled video-list-thumbs row pt-1">';
     foreach($category['items'] as $v) {
+
     echo '<li class="col-xs-6 col-sm-6 col-md-4 col-lg-4" ><a href="./watch.php?v='. $v['id']['videoId'].'" class="hhh" >
     			<img src="./thumbnail.php?type=mqdefault&vid='.$v['id']['videoId'].'" class=" img-responsive" /><p class="fa fa-play-circle-o kkk" ></p>
     			<span class="text-dark text-overflow font2 my-2">'.$v['snippet']['title'].'</span></a>
