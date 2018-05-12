@@ -70,7 +70,6 @@ function get_channel_video($cid,$pageToken='',$apikey,$regionCode='VN',$maxCount
 	$key = $cid.'-'.$maxCount;
 	$data = getcache($key);
 	if(!empty($data)){
-		echo $data;
 		return json_decode($data,true);
 	}
    $apilink='https://www.googleapis.com/youtube/v3/search?order=date&part=snippet&maxResults='.$maxCount.'&type=video&regionCode='.$regionCode.'&hl=zh-CN&channelId='.$cid.'&key='.$apikey.'&pageToken='.$pageToken;
@@ -95,11 +94,11 @@ function videoCategories($apikey,$regionCode='HK'){
 function getcacheddata($key, $apilink){
 	$data = getcache($key);
 	if(!empty($data)){
-		return $data;
+		return json_decode($data,true);
 	}
-   $data = json_decode(get_data($apilink),true);
+   $data = get_data($apilink);
  	setcache($key, $data);
-	return $data;
+	return json_decode($data, true);
 }
 
 function categorieslist($id){
