@@ -42,8 +42,9 @@ function get_trending($apikey,$max,$pageToken='',$regionCode='vn'){
 
 //获取用户频道数据
 function get_channel_info($cid,$apikey){
-   $apilink='https://www.googleapis.com/youtube/v3/channels?part=snippet,contentDetails,statistics&hl=zh&id='.$cid.'&key='.$apikey;
-   return json_decode(get_data($apilink),true);
+	$key = $cid.':info';
+	$apilink='https://www.googleapis.com/youtube/v3/channels?part=snippet,contentDetails,statistics&hl=zh&id='.$cid.'&key='.$apikey;
+	return getcacheddata($key, $apilink);
 }
 
 //获取相关视频
@@ -107,8 +108,9 @@ function categorieslist($id){
 }
 //获取视频类别内容
 function Categories($id,$apikey,$pageToken='',$order='relevance',$regionCode='VN'){
-   $apilink='https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&&regionCode='.$regionCode.'&hl=zh-ZH&maxResults=48&videoCategoryId='.$id.'&key='.$apikey.'&order='.$order.'&pageToken='.$pageToken;
-   return json_decode(get_data($apilink),true);
+	$key = 'category:'.$id.':'.$pageToken;
+	$apilink='https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&&regionCode='.$regionCode.'&hl=zh-ZH&maxResults=48&videoCategoryId='.$id.'&key='.$apikey.'&order='.$order.'&pageToken='.$pageToken;
+	return getcacheddata($key, $apilink);
 }
 
 
