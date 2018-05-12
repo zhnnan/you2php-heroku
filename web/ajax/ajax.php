@@ -304,8 +304,9 @@ echo '<h6 class="pt-3"><b>用户须知：</b><h6>';
         echo '<div class="font-weight-bold h6 pb-1">时下流行</div> ';
     echo'<ul class="list-unstyled video-list-thumbs row pt-1">';
     foreach($home["items"] as $v) {
+		$thumburl = get_thumb_url($v["id"]["videoId"]);
     echo '<li class="col-xs-6 col-sm-6 col-md-4 col-lg-4" ><a href="./watch.php?v='. $v["id"].'" class="hhh" >
-    			<img src="./thumbnail.php?type=mqdefault&vid='.$v["id"].'" class=" img-responsive" /><p class="fa fa-play-circle-o kkk" ></p>
+    			<img src="'.$thumburl.'" class=" img-responsive" /><p class="fa fa-play-circle-o kkk" ></p>
     			<span class="text-dark text-overflow font2 my-2">'.$v["snippet"]["title"].'</span></a>
     			<div class="pull-left pull-left1 icontext"><i class="fa fa-user icoys"></i><span class="pl-1"><a href="./channel.php?channelid='.$v["snippet"]["channelId"].'"  class="icoys">'.$v["snippet"]["channelTitle"].'</a></span></div>
     		
@@ -379,9 +380,9 @@ echo '<h6 class="pt-3"><b>用户须知：</b><h6>';
     }
     echo'<ul class="list-unstyled video-list-thumbs row pt-1">';
     foreach($category['items'] as $v) {
-
+		$thumburl = get_thumb_url($v["id"]["videoId"]);
     echo '<li class="col-xs-6 col-sm-6 col-md-4 col-lg-4" ><a href="./watch.php?v='. $v['id']['videoId'].'" class="hhh" >
-    			<img src="./thumbnail.php?type=mqdefault&vid='.$v['id']['videoId'].'" class=" img-responsive" /><p class="fa fa-play-circle-o kkk" ></p>
+    			<img src="'.$thumburl.'" class=" img-responsive" /><p class="fa fa-play-circle-o kkk" ></p>
     			<span class="text-dark text-overflow font2 my-2">'.$v['snippet']['title'].'</span></a>
     			<div class="pull-left pull-left1 icontext"><i class="fa fa-user"></i><span class="pl-1 icoys"><a href="./channel.php?channelid='.$v['snippet']['channelId'].'" class="icoys">'.$v['snippet']['channelTitle'].'</a></span></div>
     		
