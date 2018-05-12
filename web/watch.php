@@ -66,7 +66,7 @@ if (in_array($videodata['items']['0']['id'] ,$histmp)){
         				    }
         				     echo $description;
         				    } else { 
-        				        echo '^_^';
+        				        echo '==暂无描述==';
         				};
 			         ?>   
                     </p>
