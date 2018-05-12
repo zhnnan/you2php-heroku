@@ -105,6 +105,7 @@ $url = trim($file_path);
                   }
                   $fname=$_GET['vv'].'.mp4';
                   header("Content-Disposition: attachment;filename=\"$fname\"");
+                  header("Cache-Control: no-cache");
                   
                 $off = strlen($n);
                 echo $n;
