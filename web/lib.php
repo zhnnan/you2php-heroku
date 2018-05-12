@@ -67,7 +67,7 @@ function get_playlist_video($plid,$apikey){
 
 //获取用户频道视频
 function get_channel_video($cid,$pageToken='',$apikey,$regionCode='VN',$maxCount=50){
-	$key = $cid.'-'.$maxCount;
+	$key = $cid.':'.$pageToken.'-'.$maxCount;
 	$data = getcache($key);
 	if(!empty($data)){
 		return json_decode($data,true);
@@ -81,23 +81,16 @@ function get_channel_video($cid,$pageToken='',$apikey,$regionCode='VN',$maxCount
 //获取视频类别内容
 function videoCategories($apikey,$regionCode='HK'){
 	$key = 'menu';
-	$data = getcache($key);
-	if(!empty($data)){
-		return $data;
-	}
-   $apilink='https://www.googleapis.com/youtube/v3/videoCategories?part=snippet&regionCode='.$regionCode.'&hl=zh-CN&key='.$apikey;
-   $data = json_decode(get_data($apilink),true);
- 	setcache($key, $data);
-	return $data;
+	$apilink='https://www.googleapis.com/youtube/v3/videoCategories?part=snippet&regionCode='.$regionCode.'&hl=zh-CN&key='.$apikey;
+	return getcacheddata($key, $apilink);
 }
 
 function getcacheddata($key, $apilink){
 	$data = getcache($key);
-	if(!empty($data)){
-		return json_decode($data,true);
+	if(empty($data)){
+		$data = get_data($apilink);
+ 		setcache($key, $data);
 	}
-   $data = get_data($apilink);
- 	setcache($key, $data);
 	return json_decode($data, true);
 }
 
