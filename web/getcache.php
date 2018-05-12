@@ -6,7 +6,7 @@ $cacheid = $_GET['key'];
 $data = getcache($cacheid);
 
 if(!empty($data)){
-	echo json_encode($data);
+	echo $data;
 }else{
 	echo 'not exist';
 }
