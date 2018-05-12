@@ -1,126 +1,61 @@
 <?php
-//header("Content-Type: video/mp3");
+@session_start();
+@ob_start();
+error_reporting(0);
+@header( 'Expires: Sat, 26 Jul 1997 05:00:00 GMT' ); 
+@header( 'Date: ' . gmdate( 'D, d M Y H:i:s' ) . ' GMT' ); 
+@header( 'Last-Modified: ' . gmdate( 'D, d M Y H:i:s' ) . ' GMT' ); 
+@header( 'Cache-Control: private, max-age=1' ); 
+@header("Pragma: no-cache");
+@header("Content-Disposition: filename=".$_GET["id"].".mp4");
 
-@error_reporting(E_ALL & ~E_NOTICE & ~E_WARNING);
-@ignore_user_abort(0);
-@set_time_limit(0);
 include('./YouTubeDownloader.php');
 $yt = new YouTubeDownloader();
 $u="https://www.youtube.com/watch?v=".$_GET['vv'];
 $links = $yt->getDownloadLinks($u);
-if($_GET['quality'] == '720'){
-$file_path=$links['22']['url'];    
-}else{
- $file_path=$links['18']['url'];   
+$file_path=$links['22']['url'];
+function read_body(&$ch,&$string){
+	global $loadedsize;
+	$rtn=strlen($string);
+	$loadedsize+=($rtn/1024);
+	print($string);
+	@ob_flush();
+	@flush();
+	if (0!=connection_status()) {
+		curl_close($ch);
+		exit();
+	}
+	@$string = NULL;
+	//@unset($string);
+	return $rtn;
 }
-$url = trim($file_path);
+function read_head(&$ch,&$header){
+	
+	if (!strpos($header,"Cache") && !strpos($header,"ocation") )
+		@header(substr($header,0,strpos($header,"\r")));
+    return strlen($header); 
+}
+		$header1 = array('Expect: ','Accept: */*');
+		//$_SERVER['HTTP_RANGE'] = 'bytes=3902905-';
+		if (isset($_SERVER['HTTP_RANGE'])) {
+			$header1[] = 'Range: '.$_SERVER['HTTP_RANGE'];
+			$header1[] = 'Referer: '.$file_path;
+		}
+		$header1[] = 'User-Agent: '.$_SERVER['HTTP_USER_AGENT'];
+		
+			$ch = curl_init();
+			curl_setopt($ch, CURLOPT_URL, $file_path);
+			curl_setopt($ch, CURLOPT_TIMEOUT, 600);
+			@curl_setopt($ch, CURLOPT_MAXREDIRS, 5);
+			curl_setopt($ch, CURLOPT_HEADER, 0);
+			curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+			@curl_setopt($ch, CURLOPT_FOLLOWLOCATION , true);
+        	curl_setopt($ch, CURLOPT_HTTPHEADER, $header1);
+			curl_setopt($ch, CURLOPT_HEADERFUNCTION, "read_head");	//
+			curl_setopt($ch, CURLOPT_WRITEFUNCTION, "read_body");	//
+			//set_error_handler("customError");
+			@ob_clean();
+			curl_exec($ch);
+	
 
-
-    $urlArgs = parse_url($url);
- 
-    $host = $urlArgs['host'];
-    $requestUri = $urlArgs['path'];
- 
-    if (isset($urlArgs['query'])) {
-        $requestUri .= '?' . $urlArgs['query'];
-    }
- 
-    $protocol = ($urlArgs['scheme'] == 'http') ? 'tcp' : 'ssl';
-    $port = $urlArgs['port'];
- 
- 
- 
- 
- 
-    if (empty($port)) {
-        $port = ($protocol == 'tcp') ? 80 : 443;
-    }
- 
-    $header = "{$_SERVER['REQUEST_METHOD']} {$requestUri} HTTP/1.1\r\nHost: {$host}\r\n";
- 
-    unset($_SERVER['HTTP_HOST']);
-    $_SERVER['HTTP_CONNECTION'] = 'close';
- 
-    if ($_SERVER['CONTENT_TYPE']) {
-        $_SERVER['HTTP_CONTENT_TYPE'] = $_SERVER['CONTENT_TYPE'];
-    }
- 
-    foreach ($_SERVER as $x => $v) {
-        if (substr($x, 0, 5) !== 'HTTP_') {
-            continue;
-        }
-        $x = strtr(ucwords(strtr(strtolower(substr($x, 5)), '_', ' ')), ' ', '-');
-        $header .= "{$x}: {$v}\r\n";
-    }
- 
-    $header .= "\r\n";
- 
-    $remote = "{$protocol}://{$host}:{$port}";
- 
-    $context = stream_context_create();
-    stream_context_set_option($context, 'ssl', 'verify_host', false);
- 
-    $p = stream_socket_client($remote, $err, $errstr, 60, STREAM_CLIENT_CONNECT, $context);
- 
-    if (!$p) {
-        exit;
-    }
- 
-    fwrite($p, $header);
- 
-    $pp = fopen('php://input', 'r');
- 
-    while ($pp && !feof($pp)) {
-        fwrite($p, fread($pp, 1024));
-    }
- 
-    fclose($pp);
- 
-    $header = '';
- 
-    $x = 0;
-    $len = false;
-    $off = 0;
-    
-    while (!feof($p)) {
-        if ($x == 0) {
-            $header .= fread($p, 1024);
- 
-            if (($i = strpos($header, "\r\n\r\n")) !== false) {
-                $x = 1;
-                $n = substr($header, $i + 4);
-                $header = substr($header, 0, $i);
-                $header = explode(PHP_EOL, $header);
-                foreach ($header as $m) {
-                     if(stripos($m,'302') !== FALSE){
-                       continue;   
-                     }
-                     if(stripos($m,'Location') !== FALSE){
-                       continue;   
-                     }
-                    if (preg_match('!^\\s*content-length\\s*:!is', $m)) {
-                        $len = trim(substr($m, 15));
-                    }
-                    header($m);
-                  }
-                  $fname=$_GET['vv'].'.mp4';
-                  header("Content-Disposition: attachment;filename=\"$fname\"");
-                  
-                $off = strlen($n);
-                echo $n;
-                flush();
-            }
-        } else {
-            if ($len !== false && $off >= $len) {
-                break;
-            }
-            $n = fread($p, 1024);
-            $off += strlen($n);
-            echo $n;
-            flush();
-        }
-    }
-    
-    fclose($p);
-    return;
 ?>
