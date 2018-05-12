@@ -7,4 +7,5 @@ define('TITLENAME', 'Youtube代理');//网站名字
 define('EN2DEKEY', 'gfw-breaker');//一个随机字符串，加解密KEY
 define('EMAIL', 'lixiaoming0909@gmail.com');//邮箱
 define('PLAYLIST_ID', getenv("PLAYLIST_ID"));//推荐内容播放列表
+define('REDIS_SERVER', getenv("REDIS_SERVER"));//Redis 服务器IP
 ?>
