@@ -532,7 +532,7 @@ $domain=$_SERVER['SERVER_NAME'];
 
 
 function get_thumb_url($vid){
-	return 'http://'.NGINX_SERVER.':8701/vi/'.$vid.'/mqdefault.jpg';
+	return NGINX_SERVER.'/vi/'.$vid.'/mqdefault.jpg';
 }
 
 ?>
