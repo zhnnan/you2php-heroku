@@ -450,15 +450,8 @@ function shareit($id,$title='免翻墙Youtube镜像'){
 
   <a class='icobi' href='https://member.bilibili.com/v/#/text-edit' target='blank' title='分享到哔哩哔哩'><i class='iconfont icon-bilibili icofontsize'></i></a>
 
-  <a class='icowx' href='http://api.addthis.com/oexchange/0.8/forward/wechat/offer?url=".ROOT_PART."watch.php?v=".$id."' target='blank' title='分享到微信' ><i class='iconfont icon-weixin icofontsize'></i></a>
-</div>
- <div class='form-group'><div class='d-inline-block h6 pt-3 col-12'>
-    分享代码：
- </div>
-    <textarea style='resize:none;height: auto' class='form-control d-inline align-middle col-12 icoys icontext' id='inputs' type='text' rows='5' placeholder='Default input'><iframe height=498 width=510 src=&quot;".ROOT_PART."embed/?v=".$id.";&quot; frameborder=0 &quot;allowfullscreen&quot;></iframe></textarea>
-    
-    <button type='submit' class='btn btn-primary align-middle col-12 mt-2' onclick='copytext1()'>复制</button></div>";
-    
+  <a class='icowx' href='http://api.addthis.com/oexchange/0.8/forward/wechat/offer?url=".$url."' target='blank' title='分享到微信' ><i class='iconfont icon-weixin icofontsize'></i></a>
+</div>";
 }
 //
 function html5_player($id){
