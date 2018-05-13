@@ -434,7 +434,8 @@ function strdecode($string,$key='09KxDsIIe|+]8Fo{YP<l+3!y#>a$;^PzFpsxS9&d;!l;~M>
 //分享功能
 function shareit($id,$title='免翻墙Youtube镜像'){
     $pic=ROOT_PART.'/thumbnail.php?vid='.$id;
-    $url=ROOT_PART.'watch-'.$id.'.html';
+    //$url=ROOT_PART.'watch-'.$id.'.html';
+    $url=ROOT_PART.'watch.php&#161;v='.$id;
     $title=str_replace('&','||',$title);
     $title=str_replace('"',' ',$title);
      $title=str_replace("'",' ',$title);
@@ -468,9 +469,9 @@ function html5_player($id){
         
         //获取视频分辨率
         if(array_key_exists('22',$links)){
-        echo '<source src="./vs.php?vv='.$id.'&quality=720" type=\'video/mp4\' res="720" label=\'720P\'/>';   
+        echo '<source src="'.STREAM_PROXY.'/vs.php?vv='.$id.'&quality=720" type=\'video/mp4\' res="720" label=\'720P\'/>';   
             };
-        echo '<source src="./vs.php?vv='.$id.'&quality=360" type=\'video/mp4\' res="360" label=\'360P\'/>';
+        echo '<source src="'.STREAM_PROXY.'/vs.php?vv='.$id.'&quality=360" type=\'video/mp4\' res="360" label=\'360P\'/>';
         
     //提取字幕
      $slink='https://www.youtube.com/api/timedtext?type=list&v='.$id;

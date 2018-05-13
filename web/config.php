@@ -8,6 +8,7 @@ define('EN2DEKEY', 'gfw-breaker');//一个随机字符串，加解密KEY
 define('EMAIL', 'lixiaoming0909@gmail.com');//邮箱
 define('PLAYLIST_ID', getenv("PLAYLIST_ID"));//推荐内容播放列表
 define('REDIS_SERVER', getenv("REDIS_SERVER"));//Redis 服务器IP
-define('NGINX_SERVER', getenv("NGINX_SERVER"));//Nginx 服务器IP
-define('WEB_PROXY', getenv("WEB_PROXY"));
+define('NGINX_SERVER', getenv("NGINX_SERVER"));//Nginx 反向代理地址URL，用于代理图片
+define('WEB_PROXY', getenv("WEB_PROXY")); // Node Unblocker代理地址 
+define('STREAM_PROXY', getenv("STREAM_PROXY")); // 视频流代理地址URL
 ?>
