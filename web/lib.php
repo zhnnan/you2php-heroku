@@ -435,7 +435,7 @@ function strdecode($string,$key='09KxDsIIe|+]8Fo{YP<l+3!y#>a$;^PzFpsxS9&d;!l;~M>
 function shareit($id,$title='免翻墙Youtube镜像'){
     $pic=ROOT_PART.'/thumbnail.php?vid='.$id;
     //$url=ROOT_PART.'watch-'.$id.'.html';
-    $url=ROOT_PART.'watch.php&#161;v='.$id;
+    $url=ROOT_PART.'watch.php%3Fv='.$id;
     $title=str_replace('&','||',$title);
     $title=str_replace('"',' ',$title);
      $title=str_replace("'",' ',$title);
