@@ -87,7 +87,7 @@ if (in_array($videodata['items']['0']['id'] ,$histmp)){
                     <a href="https://github.com/gfw-breaker/nogfw/blob/master/README.md" target="_blank" class="fsize2"><i class="fa fa-share-square-o pr-1"></i>翻墙软件</a>
                 </span>
                 <span class="pr-1">
-                    <a href="https://my-ntdtv.herokuapp.com/sites.html" target="_blank" class="fsize2"><i class="fa fa-share-square-o pr-1"></i>Web代理</a>
+                    <a href="<?php echo WEB_PROXY ?>" target="_blank" class="fsize2"><i class="fa fa-share-square-o pr-1"></i>Web代理</a>
                 </span>
                 </span>
              </div>
