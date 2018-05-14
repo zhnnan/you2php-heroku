@@ -532,7 +532,7 @@ function get_thumb_url($vid){
 
 function is_video_invalid($title){
 	$needle = "郭文贵";  
-	$tmparray = explode($needle,$str);   
+	$tmparray = explode($needle,$title);   
 	if(count($tmparray)>1){   
 		return true;   
 	} else{   
