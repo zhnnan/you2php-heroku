@@ -462,9 +462,9 @@ function html5_player($id){
         
         //获取视频分辨率
         if(array_key_exists('22',$links)){
-        echo '<source src="'.STREAM_PROXY.'/vs.php?vv='.$id.'&quality=720" type=\'video/mp4\' res="720" label=\'720P\'/>';   
+        echo '<source src="'.STREAM_URL.'?vv='.$id.'&quality=720" type=\'video/mp4\' res="720" label=\'720P\'/>';   
             };
-        echo '<source src="'.STREAM_PROXY.'/vs.php?vv='.$id.'&quality=360" type=\'video/mp4\' res="360" label=\'360P\'/>';
+        echo '<source src="'.STREAM_URL.'?vv='.$id.'&quality=360" type=\'video/mp4\' res="360" label=\'360P\'/>';
         
     //提取字幕
      $slink='https://www.youtube.com/api/timedtext?type=list&v='.$id;
