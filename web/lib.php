@@ -529,4 +529,15 @@ function get_thumb_url($vid){
 	return NGINX_SERVER.'/vi/'.$vid.'/mqdefault.jpg';
 }
 
+
+function is_video_invalid($title){
+	$needle = "郭文贵";  
+	$tmparray = explode($needle,$str);   
+	if(count($tmparray)>1){   
+		return true;   
+	} else{   
+		return false;   
+	}   
+}
+
 ?>
