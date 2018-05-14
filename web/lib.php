@@ -529,5 +529,13 @@ function get_thumb_url($vid){
 	return NGINX_SERVER.'/vi/'.$vid.'/mqdefault.jpg';
 }
 
+function title_invalid($title){
+	$needle = "郭文贵";  
+	if (strpos($title,$needle) !== false) {
+    	return True;
+	}else {
+		return False;
+	}
+}
 
 ?>
