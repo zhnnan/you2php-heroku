@@ -458,7 +458,7 @@ function html5_player($id){
     $yt = new YouTubeDownloader();
     $links = $yt->getDownloadLinks('https://www.youtube.com/watch?v='.$id);
     if(count($links)!=1){
-        echo'<video id="h5player"  class="video-js vjs-fluid mh-100 mw-100" loop="loop" width="100%" webkit-playsinline="true" playsinline="true" x-webkit-airplay="true" controls="controls" controls preload="none" poster="./thumbnail.php?type=maxresdefault&vid='.$id.'" data-setup=\'\'>';
+        echo'<video id="h5player"  class="video-js vjs-fluid mh-100 mw-100" loop="loop" width="100%" webkit-playsinline="true" playsinline="true" x-webkit-airplay="true" controls="controls" controls preload="auto" poster="./thumbnail.php?type=maxresdefault&vid='.$id.'" data-setup=\'\'>';
         
         //获取视频分辨率
         if(array_key_exists('22',$links)){
