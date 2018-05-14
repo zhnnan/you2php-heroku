@@ -5,11 +5,11 @@
     }
     $videodata=get_video_info($_GET['v'],APIKEY);
     $headtitle=$videodata['items']['0']['snippet']['title'].' - '.SITE_NAME;
-	if(is_title_invalid($headtitle)){
-		$vid="U4MtUGwgTAQ";
-    	$videodata=get_video_info($vid, APIKEY);
-    	$headtitle=$videodata['items']['0']['snippet']['title'].' - '.SITE_NAME;
-	}
+	//if(is_title_invalid($headtitle)){
+	//	$vid="U4MtUGwgTAQ";
+    //	$videodata=get_video_info($vid, APIKEY);
+    //	$headtitle=$videodata['items']['0']['snippet']['title'].' - '.SITE_NAME;
+	//}
     include("./header.php"); 
     if($videodata['pageInfo']['totalResults'] == '0' && $videodata['pageInfo']['resultsPerPage']== '0'){
       header("Location: ./error.php");
