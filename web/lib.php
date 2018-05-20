@@ -36,8 +36,9 @@ function get_trending($apikey,$max,$pageToken='',$regionCode='vn'){
 
 //获取视频数据函数
  function get_video_info($id,$apikey){
+	$key = $id;
     $apilink='https://www.googleapis.com/youtube/v3/videos?part=snippet,contentDetails,statistics&id='.$id.'&key='.$apikey;
-     return json_decode(get_data($apilink),true);
+	return getcacheddata($key, $apilink);
 }
 
 //获取用户频道数据
