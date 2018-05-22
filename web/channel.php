@@ -27,15 +27,15 @@ a { margin: 10px}
 <br/>
 
 <h4>免翻墙访问被禁网站</h4>
-<a href="http://198.13.46.230:10080/info/tv.html" target="_blank">新唐人直播</a> 
-<a href="http://198.13.46.230:10080" target="_blank">大纪元新闻网</a> 
-<a href="http://198.13.46.230:8000" target="_blank">新唐人电视台</a> 
-<a href="http://198.13.46.230:8200" target="_blank">希望之声广播电台</a>
-<a href="http://198.13.46.230:9700" target="_blank">VOA美国之音</a> 
+<a href="<?php echo getenv("PROXY_BASE") ?>:10080/info/tv.html" target="_blank">新唐人直播</a> 
+<a href="<?php echo getenv("PROXY_BASE") ?>:10080" target="_blank">大纪元新闻网</a> 
+<a href="<?php echo getenv("PROXY_BASE") ?>:8000" target="_blank">新唐人电视台</a> 
+<a href="<?php echo getenv("PROXY_BASE") ?>:8200" target="_blank">希望之声广播电台</a>
+<a href="<?php echo getenv("PROXY_BASE") ?>:9700" target="_blank">VOA美国之音</a> 
 <br/>
-<a href="http://198.13.46.230:10000" target="_blank">我的博客</a> 
-<a href="http://198.13.46.230:8100/wiki/喬高-麥塔斯調查報告" target="_blank">维基百科</a> 
-<a href="http://198.13.46.230:8888" target="_blank">Google搜索</a> 
+<a href="<?php echo getenv("PROXY_BASE") ?>:10000" target="_blank">我的博客</a> 
+<a href="<?php echo getenv("PROXY_BASE") ?>:8100/wiki/喬高-麥塔斯調查報告" target="_blank">维基百科</a> 
+<a href="<?php echo getenv("PROXY_BASE") ?>:8888" target="_blank">Google搜索</a> 
 <br/>
 
 <h4>
@@ -45,4 +45,5 @@ a { margin: 10px}
 </div>
 </body>
 </html>
+
 
