@@ -14,7 +14,7 @@
 
 <a href="https://yt-proxy-01.herokuapp.com">YouTube代理节点1</a>  &nbsp;&nbsp;&nbsp;
 <a href="https://yt-proxy-02.herokuapp.com">YouTube代理节点2</a>  &nbsp;&nbsp;&nbsp;
-<a href="https://the-youtube.herokuapp.com/home.php">YouTube代理节点3</a>  &nbsp;&nbsp;&nbsp;
+<a href="https://yt-proxy-03.herokuapp.com">YouTube代理节点3</a>  &nbsp;&nbsp;&nbsp;
 
 <br/>
 <h5>免翻墙访问被禁网站：</h5>
