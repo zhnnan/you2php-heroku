@@ -11,6 +11,26 @@
     "PLAYLIST_ID": {
       "description": "推荐内容 Playlist ID",
       "value": "PLLOFsS_xM0Rx0FvJ11eS-Mxomo4xLJUD_"
+    },
+    "REDIS_SERVER": {
+      "description": "Redis 服务器IP",
+      "value": "localhost"
+    },
+    "NGINX_SERVER": {
+      "description": "Nginx 反向代理地址URL",
+      "value": "http://localhost:8701"
+    },
+    "WEB_PROXY": {
+      "description": "Node Unblocker代理地址",
+      "value": "https://web-proxy.herokuapp.com"
+    },
+    "STREAM_URL": {
+      "description": "视频流代理地址URL",
+      "value": "http://localhost:9999/lb/vs"
+    },
+    "HOME_PAGE": {
+      "description": "主页地址",
+      "value": "https://proxy.herokuapp.com"
     }
   }
 }
