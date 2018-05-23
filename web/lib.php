@@ -462,10 +462,10 @@ function html5_player($id){
         echo'<video id="h5player"  class="video-js vjs-fluid mh-100 mw-100" loop="loop" width="100%" webkit-playsinline="true" playsinline="true" x-webkit-airplay="true" controls="controls" controls preload="auto" poster="./thumbnail.php?type=maxresdefault&vid='.$id.'" data-setup=\'\'>';
         
         //获取视频分辨率
+        echo '<source src="'.STREAM_URL.'?vv='.$id.'&quality=360" type=\'video/mp4\' res="360" label=\'360P\'/>';
         if(array_key_exists('22',$links)){
         echo '<source src="'.STREAM_URL.'?vv='.$id.'&quality=720" type=\'video/mp4\' res="720" label=\'720P\'/>';   
             };
-        echo '<source src="'.STREAM_URL.'?vv='.$id.'&quality=360" type=\'video/mp4\' res="360" label=\'360P\'/>';
         
     //提取字幕
      $slink='https://www.youtube.com/api/timedtext?type=list&v='.$id;

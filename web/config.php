@@ -16,4 +16,11 @@ if(empty($stream_url)){
 	$stream_url = "./vs.php";
 }
 define('STREAM_URL', $stream_url); // 视频流代理地址URL
+
+$home_page = getenv("HOME_PAGE");
+if(empty($home_page)){
+	$home_page = "./";
+}
+define('HOME_PAGE', $home_page); // 
+
 ?>
