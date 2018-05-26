@@ -29,6 +29,8 @@ a { margin: 10px}
 
 <h4>免翻墙访问被禁网站</h4>
 <a href="<?php echo getenv("PROXY_BASE") ?>:10080/info/tv.html" target="_blank">新唐人直播</a> 
+<a href="<?php echo getenv("PROXY_BASE") ?>:8000/xtr/gb/prog668.html" target="_blank">神韵艺术团 特别报导</a> 
+<br/>
 <a href="<?php echo getenv("PROXY_BASE") ?>:10080" target="_blank">大纪元新闻网</a> 
 <a href="<?php echo getenv("PROXY_BASE") ?>:8000" target="_blank">新唐人电视台</a> 
 <a href="<?php echo getenv("PROXY_BASE") ?>:8200" target="_blank">希望之声广播电台</a>
