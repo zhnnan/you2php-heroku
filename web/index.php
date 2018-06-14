@@ -20,11 +20,7 @@ a { margin: 10px}
 <div id="content">
 <br/>
 <h4 style="color:red">新增节点地址可能变化，请收藏此页面</h4>
-<h4>由于近日访问量激增，导致本网站响应极慢, 故新增节点用以缓解，请大家自行选择</h4>
-<a href="https://hello.the-youtube.win">YouTube代理节点1</a> 
-<a href="https://yt-proxy-01.herokuapp.com">YouTube代理节点2</a> 
-<a href="https://yt-proxy-02.herokuapp.com">YouTube代理节点3</a> 
-<a href="https://yt-proxy-03.herokuapp.com">YouTube代理节点4</a> 
+<a href="<?php echo getenv("YOUTUBE_SITE") ?>">YouTube代理节点1</a> 
 <br/>
 
 <h4>免翻墙访问被禁网站</h4>
@@ -43,7 +39,7 @@ a { margin: 10px}
 
 <h4>
 <a href="https://github.com/gfw-breaker/nogfw/blob/master/README.md" target="_blank" >一键翻墙软件</a>
-<a href="https://web-proxy-1.herokuapp.com/" target="_blank">通用Web代理</a>
+<a href="<?php echo getenv("WEB_PROXY") ?>" target="_blank">通用Web代理</a>
 </h4>
 </div>
 </body>

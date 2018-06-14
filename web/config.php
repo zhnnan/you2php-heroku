@@ -16,4 +16,7 @@ if(empty($stream_url)){
 	$stream_url = "./vs.php";
 }
 define('STREAM_URL', $stream_url); // 视频流代理地址URL
+
+
+define('YOUTUBE_SITE', getenv('YOUTUBE_SITE'));//网站名字
 ?>
