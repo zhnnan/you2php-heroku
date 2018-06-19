@@ -52,8 +52,9 @@ if (in_array($videodata['items']['0']['id'] ,$histmp)){
              <div id="videoplayer" class="w-100">
                  <?php html5_player($videodata['items']['0']['id']);?>
              </div>
-             
-            
+
+            	<div style="color:red;">温馨提示:国产浏览器/微信可能无法正常播放，请使用Chrome、FireFox、Safari、IE等浏览器或点击下载进行观看</div>
+ 
             <div class="vinfo fsize2 clearfix">
                 <h1 class="fsize1 pt-4 pb-2 d-block text-dark"><?php echo $videodata['items']['0']['snippet']['title'] ?></h1>
 
