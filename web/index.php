@@ -24,17 +24,17 @@ a { margin: 10px}
 <br/>
 
 <h4>免翻墙访问被禁网站</h4>
-<a href="<?php echo getenv("PROXY_BASE") ?>:10080/info/tv.html" target="_blank">新唐人直播</a> 
-<a href="<?php echo getenv("PROXY_BASE") ?>:8000/xtr/gb/prog668.html" target="_blank">神韵艺术团 特别报导</a> 
+<a href="<?php echo getenv("PROXY_BASE") ?>/tv.html" target="_blank">新唐人直播</a> 
+<a href="<?php echo getenv("PROXY_BASE") ?>/proxy/http://www.ntdtv.com/xtr/gb/prog668.html" target="_blank">神韵艺术团 特别报导</a> 
 <br/>
-<a href="<?php echo getenv("PROXY_BASE") ?>:10080" target="_blank">大纪元新闻网</a> 
-<a href="<?php echo getenv("PROXY_BASE") ?>:8000" target="_blank">新唐人电视台</a> 
-<a href="<?php echo getenv("PROXY_BASE") ?>:8200" target="_blank">希望之声广播电台</a>
-<a href="<?php echo getenv("PROXY_BASE") ?>:9700" target="_blank">VOA美国之音</a> 
+<a href="<?php echo getenv("PROXY_BASE") ?>/proxy/http://www.epochtimes.com/" target="_blank">大纪元新闻网</a> 
+<a href="<?php echo getenv("PROXY_BASE") ?>/proxy/http://www.ntdtv.com/" target="_blank">新唐人电视台</a> 
+<a href="<?php echo getenv("PROXY_BASE") ?>/proxy/https://www.soundofhope.org/" target="_blank">希望之声广播电台</a>
+<a href="<?php echo getenv("PROXY_BASE") ?>/proxy/https://www.voachinese.com/" target="_blank">VOA美国之音</a> 
 <br/>
-<a href="<?php echo getenv("PROXY_BASE") ?>:10000" target="_blank">我的博客</a> 
-<a href="<?php echo getenv("PROXY_BASE") ?>:8100/wiki/喬高-麥塔斯調查報告" target="_blank">维基百科</a> 
-<a href="<?php echo getenv("PROXY_BASE") ?>:8888" target="_blank">Google搜索</a> 
+<a href="<?php echo getenv("PROXY_BASE") ?>/proxy/http://truth.atspace.eu/" target="_blank">我的博客</a> 
+<a href="<?php echo getenv("PROXY_BASE") ?>/proxy/https://zh.wikipedia.org/wiki/喬高-麥塔斯調查報告" target="_blank">维基百科</a> 
+<a href="<?php echo getenv("PROXY_BASE") ?>/proxy/https://www.google.com/search?q=425事件" target="_blank">Google搜索</a> 
 <br/>
 
 <h4>
